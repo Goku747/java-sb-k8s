@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-sb-gradle
+  labels:
+    app: java-sb-gradle
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-sb-gradle
+  template:
+    metadata:
+      labels:
+        app: java-sb-gradle
+    spec:
+      containers:
+      - name: java-sb-gradle
+        image: goku747/java-sb-gradle:33
+        ports:
+        - containerPort: 8090
